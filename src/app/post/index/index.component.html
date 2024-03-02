@@ -6,7 +6,7 @@
             <tr>
                 <th>Id</th>
                 <th>Title</th>
-                <th>Post</th>
+                <th>Description</th>
                 <th width="250px">Action</th>
             </tr>
         </thead>
@@ -16,6 +16,11 @@
                 <td>{{post.id}}</td>
                 <td>{{post.title}}</td>
                 <td>{{post.body}}</td>
+                <td>
+                    <a class="btn btn-info" [routerLink]="['/' + post.id, 'view']">View</a>
+                    <a class="btn btn-primary" [routerLink]="['/' + post.id, 'edit']">Edit</a>
+                    <button class="btn btn-danger" type="button" (click)="deletePost(post.id)">Delete</button>
+                </td>
             </tr>
             }
         </tbody>

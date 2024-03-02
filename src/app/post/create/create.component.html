@@ -1,1 +1,39 @@
-<p>create works!</p>
+<!-- <div class="container">
+    <form [formGroup]="postForm" (ngSubmit)="createPost()">
+        <input type="text" formControlName="title">
+        <input type="text" formControlName="body">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div> -->
+
+<div class="container">
+    <form [formGroup]="postForm" (ngSubmit)="createPost()">
+        <div class="mb-3 form-group">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" formControlName="title">
+            <div>
+                @if (this.postForm.value['title'].touched && this.postForm.value['title'].invalid){
+                <div class="alert-danger">
+                    @if (this.postForm.value['title'].error && this.postForm.value['title'].errors['required']){
+                    <small>Title is required</small>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+        <div class="mb-3 form-group">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control" formControlName="body">
+            <div class="alert-danger">
+                @if (postForm.value['body'].touched && postForm.value['body'].invalid){
+                <div>
+                    @if (postForm.value['body'].error && postForm.value['body'].errors['required']){
+                    <small class="text-danger">Title is required</small>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!postForm.invalid">Submit</button>
+    </form>
+</div>
