@@ -1,1 +1,31 @@
-<p>edit works!</p>
+<div class="container">
+    <form [formGroup]="postEditForm" (ngSubmit)="submitEditData()">
+        <div class="mb-3 form-group">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" formControlName="title">
+            <div>
+                @if (this.postEditForm.value['title'].touched && this.postEditForm.value['title'].invalid){
+                <div class="alert-danger">
+                    @if (this.postEditForm.value['title'].error && this.postEditForm.value['title'].errors['required']){
+                    <small>Title is required</small>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+        <div class="mb-3 form-group">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control" formControlName="body">
+            <div class="alert-danger">
+                @if (postEditForm.value['body'].touched && postEditForm.value['body'].invalid){
+                <div>
+                    @if (postEditForm.value['body'].error && postEditForm.value['body'].errors['required']){
+                    <small class="text-danger">Title is required</small>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>

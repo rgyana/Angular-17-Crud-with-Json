@@ -33,7 +33,7 @@ export class PostService {
     return createPostDate;
   }
 
-  async findPostData(id: number) {
+  async findPostDataById(id: number) {
     let url = this.baseApiUrl + 'posts/' + encodeURIComponent(id);
     const findPostData = await lastValueFrom(this.httpClient.get<any>(url));
     return findPostData;
