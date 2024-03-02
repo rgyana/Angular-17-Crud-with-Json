@@ -26,11 +26,11 @@ export class IndexComponent {
       console.log(this.allPostData);
     })
   }
-  // getAllPostData() {
-  //   this.postService.getAllDate().subscribe((res) => {
-  //     this.allPostData = res;
-  //     console.log(this.allPostData);
-  //   })
-  // }
+
+  deletePost(postId: number) {
+    this.postService.deletePostData(postId).then((res) => {
+      this.allPostData = this.allPostData.filter(item => item.id !== postId);
+    })
+  }
 
 }

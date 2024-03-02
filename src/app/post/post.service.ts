@@ -8,13 +8,13 @@ import { Post } from './post';
 })
 export class PostService {
 
-  private baseApiUrl = 'https://jsonplaceholder.typicode.com/';
+  private baseApiUrl = 'http://localhost:3000/';
 
-  httpOption = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
+  // httpOption = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   })
+  // }
 
   constructor(private httpClient: HttpClient) { }
 
@@ -27,9 +27,9 @@ export class PostService {
   //   return this.httpClient.get<any>(this.baseApiUrl + 'posts')
   // }
 
-  async createPost(post: Post) {
+  async createPost(post: any) {
     let url = this.baseApiUrl + 'posts';
-    const createPostDate = await lastValueFrom(this.httpClient.post<any>(url, JSON.stringify(post)));
+    const createPostDate = await lastValueFrom(this.httpClient.post<any>(url, post));
     return createPostDate;
   }
 
