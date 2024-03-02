@@ -8,7 +8,7 @@
 
 <div class="container">
     <form [formGroup]="postForm" (ngSubmit)="createPost()">
-        <div class="mb-3">
+        <div class="mb-3 form-group">
             <label class="form-label">Title</label>
             <input type="text" class="form-control" formControlName="title">
             <div>
@@ -21,19 +21,19 @@
                 }
             </div>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 form-group">
             <label class="form-label">Description</label>
             <input type="text" class="form-control" formControlName="body">
-            <div>
-                @if (this.postForm.value['body'].touched && this.postForm.value['body'].invalid){
-                <div class="alert-danger">
-                    @if (this.postForm.value['body'].error && this.postForm.value['body'].errors['required']){
-                    <small>Title is required</small>
+            <div class="alert-danger">
+                @if (postForm.value['body'].touched && postForm.value['body'].invalid){
+                <div>
+                    @if (postForm.value['body'].error && postForm.value['body'].errors['required']){
+                    <small class="text-danger">Title is required</small>
                     }
                 </div>
                 }
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!postForm.invalid">Submit</button>
     </form>
 </div>
