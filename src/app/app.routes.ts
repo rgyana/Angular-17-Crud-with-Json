@@ -5,7 +5,11 @@ import { EditComponent } from './post/edit/edit.component';
 import { ViewComponent } from './post/view/view.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'index', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    {
+        path: 'login',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+    },
     { path: 'index', component: IndexComponent },
     { path: 'create', component: CreateComponent },
     { path: ':postId/edit', component: EditComponent },

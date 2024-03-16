@@ -1,31 +1,36 @@
-<div class="container">
-    <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
-        <div class="mb-3 form-group">
-            <label class="form-label">Username</label>
-            <input type="text" class="form-control" formControlName="username">
-            <div>
-                @if (this.loginForm.value['username'].touched && this.loginForm.value['username'].invalid){
-                <div class="alert-danger">
-                    @if (this.loginForm.value['username'].error && this.loginForm.value['username'].errors['required']){
-                    <small>Title is required</small>
-                    }
-                </div>
-                }
-            </div>
-        </div>
-        <div class="mb-3 form-group">
-            <label class="form-label">Password</label>
-            <input type="text" class="form-control" formControlName="password">
-            <div class="alert-danger">
-                @if (loginForm.value['password'].touched && loginForm.value['password'].invalid){
+<div class="w-full flex h-screen">
+    <div class="col-6 flex justify-content-center align-items-center bg-gray-100">
+    </div>
+    <div class="col-6 flex justify-content-center align-items-center">
+        <form class="w-full mx-8" [formGroup]="loginForm" (ngSubmit)="doLogin()">
+            <div class="mb-3 flex flex-column gap-2">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" pInputText placeholder="Enter your mobile number" formControlName="mobileNumber" />
                 <div>
-                    @if (loginForm.value['password'].error && loginForm.value['password'].errors['required']){
-                    <small class="text-danger">Title is required</small>
+                    @if (this.loginForm.value['mobileNumber'].touched && this.loginForm.value['mobileNumber'].invalid){
+                    <div class="alert-danger">
+                        @if (this.loginForm.value['mobileNumber'].error &&
+                        this.loginForm.value['mobileNumber'].errors['required']){
+                        <small>Title is required</small>
+                        }
+                    </div>
                     }
                 </div>
-                }
             </div>
-        </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.invalid">Submit</button>
-    </form>
+            <div class="mb-3 flex flex-column gap-2">
+                <label for="password">Password</label>
+                <input type="text" pInputText placeholder="Enter your password" formControlName="password" />
+                <div class="alert-danger">
+                    @if (loginForm.value['password'].touched && loginForm.value['password'].invalid){
+                    <div>
+                        @if (loginForm.value['password'].error && loginForm.value['password'].errors['required']){
+                        <small class="text-danger">Title is required</small>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+            <button pButton pRipple label="Submit" class="w-full"></button>
+        </form>
+    </div>
 </div>

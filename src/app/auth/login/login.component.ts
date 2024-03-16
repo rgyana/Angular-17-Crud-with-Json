@@ -23,12 +23,20 @@ export class LoginComponent {
     })
   }
 
-  mobileNumber = 783876626;
-  password = 123456;
   doLogin() {
-    if (this.loginForm.value.mobileNumber === this.mobileNumber && this.loginForm.value.password === this.password) {
-      this.router.navigate(['/index']); 
+    if (this.loginForm.value.mobileNumber == '7683876626' && this.loginForm.value.password == '123456') {
+      this.router.navigate(['/index']);
     }
+
+    // if (this.loginForm.value.mobileNumber.value == mobileNumber && this.loginForm.value.password.value == password) {
+    //   console.log("Login successfully !!");
+    //   console.log(this.loginForm.value.mobileNumber, this.loginForm.value.password);
+    //   this.router.navigate(['/index']);
+    // }
+    // else {
+    //   console.log("Wrong credentials, please try again");
+    //   console.log(this.loginForm.value.mobileNumber, this.loginForm.value.password);
+    // }
   }
 
 }
