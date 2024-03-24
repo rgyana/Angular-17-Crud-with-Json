@@ -1,0 +1,36 @@
+<div class="">
+    <header class="w-full flex align-items-center justify-content-between px-4"
+        style="height: 80px; background-image: linear-gradient(to bottom right, #0093E9, #80D0C7);">
+        <div class="w-full text-white text-2xl font-bold cursor-pointer">Angular Crud</div>
+
+        <div class="w-full flex align-items-center justify-content-end gap-8 mx-4 pr-8">
+            <div class="text-white text-xl font-normal cursor-pointer hover:text-primary-50">Home</div>
+            <div class="text-white text-xl font-normal cursor-pointer hover:text-primary-50">Report</div>
+        </div>
+
+        <div class="flex align-items-center justify-content-center border-circle cursor-pointer mx-4"
+            style="width: 35px; background-color: #2E2E2E;">
+            <div class="text-white text-lg px-4 py-1">A</div>
+        </div>
+    </header>
+</div>
+
+<div class="flex">
+    <section class="side-panel" style="width: 400px;">
+        <div class="flex flex-column align-items-start justify-content-center gap-4 pt-4">
+
+            @for(item of sidePanelDetails; track item){
+            <div class="flex align-items-center justify-content-center cursor-pointer ml-8" (click)="selectLabel(item)"
+                [ngStyle]="{'color': selectedLabel === item ? 'blue' : '#2E2E2E'}">
+                <i style="font-size: 16px;" [ngClass]="'pi ' + item.icon"></i>
+                <div class="text-normal ml-2">{{item.label}}</div>
+            </div>
+            }
+
+        </div>
+    </section>
+
+    <section class="w-full h-full">
+        <router-outlet></router-outlet>
+    </section>
+</div>

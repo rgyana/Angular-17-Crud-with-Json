@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { ButtonModule } from 'primeng/button';
     RouterModule,
     ReactiveFormsModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
   ]
 })
 export class SharedModule { }
